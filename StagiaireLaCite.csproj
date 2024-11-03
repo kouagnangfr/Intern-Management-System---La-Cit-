@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\eteindre1.png" />
+    <None Remove="images\eteindre2.png" />
+    <None Remove="images\img1.png" />
+    <None Remove="images\img2.png" />
+    <None Remove="images\img3.png" />
+    <None Remove="images\img4.png" />
+    <None Remove="images\img_setting.png" />
+    <None Remove="images\logo.png" />
+    <None Remove="images\Set.png" />
+    <None Remove="images\setting.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+	 <Folder Include="Styles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\eteindre1.png" />
+    <Resource Include="images\eteindre2.png" />
+    <Resource Include="images\img1.png" />
+    <Resource Include="images\img2.png" />
+    <Resource Include="images\img3.png" />
+    <Resource Include="images\img4.png" />
+    <Resource Include="images\img_setting.png" />
+    <Resource Include="images\logo.png" />
+    <Resource Include="images\Set.png" />
+    <Resource Include="images\setting.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,118 @@
+﻿<Window x:Class="StagiaireLaCite.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:StagiaireLaCite.VuesModels"
+        xmlns:util="clr-namespace:StagiaireLaCite.Utilitaires"
+         mc:Ignorable="d"
+        Title="MainWindow"
+        Height="600"
+        Width="850"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent">
+
+    <Window.DataContext>
+        <vm:NavigationVM />
+    </Window.DataContext>
+
+    <Grid>
+
+
+        <Border Background="WhiteSmoke"
+                CornerRadius="20" />
+
+
+        <!--Grille principale-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="230" />
+                <ColumnDefinition Width="630" />
+            </Grid.ColumnDefinitions>
+
+            <!--Colone de navigation-->
+            <Grid HorizontalAlignment="Left"
+                  Width="228">
+                <Border Background="#00a15e"
+                        CornerRadius="20,0,0,20" />
+
+
+                <StackPanel Height="400"
+                            Width="228">
+
+                    <TextBlock Text="La Cite" 
+                       Margin="0,0,0,50"
+                       HorizontalAlignment="Center"
+                       FontSize="50"
+                       FontWeight="ExtraBold"
+                       Foreground="white" />
+
+                    <!--Accueil-->
+                    <util:Btn Style="{StaticResource Btn_Sty}" Command="{Binding CommandeAccueil}" 
+                              IsChecked="True">
+
+                        <Grid>
+                            <Image Source="Images/img1.png" Style="{StaticResource Sty_Img}" />
+                            <TextBlock Text="Accueil" Style="{StaticResource Sty_txt}" />
+                        </Grid>
+                    </util:Btn>
+
+
+
+                    <!--Programmmes-->
+                    <util:Btn Style="{StaticResource Btn_Sty}" Command="{Binding CommandeProgrammes}">
+                        <Grid>
+                            <Image Source="Images/img2.png" Style="{StaticResource Sty_Img}" />
+                            <TextBlock Text="Programmes" Style="{StaticResource Sty_txt}" />
+                        </Grid>
+                    </util:Btn>
+
+
+
+                    <!--Stagiaires-->
+                    <util:Btn Style="{StaticResource Btn_Sty}" Command="{Binding CommandeStagiaires}">
+                        <Grid>
+                            <Image Source="Images/img3.png" Style="{StaticResource Sty_Img}" />
+                            <TextBlock Text="Stagiaire" Style="{StaticResource Sty_txt}" />
+                        </Grid>
+                    </util:Btn>
+
+
+
+
+                    <!--Consulter-->
+                    <util:Btn Style="{StaticResource Btn_Sty}" Command="{Binding CommandeConsulter}">
+                        <Grid>
+                            <Image Source="Images/img4.png" Style="{StaticResource Sty_Img}" />
+                            <TextBlock Text="consulter" Style="{StaticResource Sty_txt}" />
+                        </Grid>
+                    </util:Btn>
+
+
+
+
+                    <!--Parametres-->
+                    <util:Btn Style="{StaticResource Btn_Sty}" Command="{Binding CommandeParametres}">
+                        <Grid>
+                            <Image Source="Images/img_setting.png" Style="{StaticResource Sty_Img}"/>
+                            <TextBlock Text="parametres" Style="{StaticResource Sty_txt}" />
+                        </Grid>
+                    </util:Btn>
+
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <ContentControl x:Name="Pages" Content="{Binding VueCourante}" />
+            </Grid>
+
+        </Grid>
+
+
+        <!--Fermeture de  l'application-->
+        <Button x:Name="CloseApp" Style="{StaticResource Etein_Sty}" Click="CloseApp_Click" />
+    </Grid>
+</Window>

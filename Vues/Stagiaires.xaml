@@ -1,0 +1,152 @@
+﻿<UserControl x:Class="StagiaireLaCite.Vues.Stagiaires"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StagiaireLaCite.Vues"
+        xmlns:vm="clr-namespace:StagiaireLaCite.VuesModels"
+        mc:Ignorable="d"
+        d:DesignHeight="600"
+        d:DesignWidth="622"
+        Style="{StaticResource Page_Style}"
+        Loaded="UserControl_Loaded">
+
+    <UserControl.DataContext>
+        <vm:StagiairesVM />
+    </UserControl.DataContext>
+
+
+    <Grid Margin="5">
+
+        <StackPanel Orientation="Vertical"
+                    Margin="50">
+            <TextBlock Text="Ajouter un Stagiaire" 
+                       FontSize="30"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Foreground="#00a15e"
+                       Padding="10"
+                       FontWeight="ExtraBold"
+                       Margin="0, 10, 0, 10"
+                       />
+            <Grid VerticalAlignment="Center"
+              HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Numero d'etudiant" 
+                   Grid.Row="0"
+                   Margin="0,15,0,5"
+                   HorizontalAlignment="Left"
+                   FontSize="13"
+                   Foreground="Gray"
+                           />
+                <TextBox  Grid.Column="1"
+                  Grid.Row="1"
+                  Padding="0,5"
+                  Width="300"
+                  HorizontalAlignment="Left"
+                  Text=""
+                  x:Name="NumeroEtudiant"/>
+                <TextBlock Text="Nom et Prenom" 
+                   Grid.Row="2"
+                   Margin="0,15,0,5"
+                   HorizontalAlignment="Left"
+                   FontSize="13"
+                   Foreground="Gray"/>
+                <TextBox Grid.Row="3"
+                      Text=""
+                      Padding="0,5"                           
+                      Width="300"
+                      HorizontalAlignment="Left"
+                      x:Name="NomPrenomStagiaire"/>
+                <TextBlock Text="Date de naissance" 
+                   Grid.Row="4"
+                   Margin="0,15,0,5"
+                   HorizontalAlignment="Left"
+                   FontSize="13"
+                   Foreground="Gray"
+                   />
+                <DatePicker Grid.Row="5"
+                      Text=""
+                      Padding="0,5"                           
+                      Width="300"
+                      HorizontalAlignment="Left"
+                      x:Name="DateNaissance"/>
+                <TextBlock Text="Sexe" 
+                   Grid.Row="6"
+                   Margin="0,15,0,5"
+                   HorizontalAlignment="Left"
+                   FontSize="13"
+                   Foreground="Gray"/>
+                <ComboBox Grid.Row="7" Text="Veillez faire un choix"
+                      Padding="0,5" Width="300" HorizontalAlignment="Left"
+                      x:Name="Sexe">
+                    <ComboBoxItem Content="Masculin"/>
+                    <ComboBoxItem Content="Féminin"/>
+                    <ComboBoxItem Content="Autre"/>
+                </ComboBox>
+                <TextBlock Text="Programme" 
+                   Grid.Row="8"
+                   Margin="0,15,0,5"
+                   HorizontalAlignment="Left"
+                   FontSize="13"
+                   Foreground="Gray"/>
+                <ComboBox Grid.Row="9" Text="" Padding="0,5"                           
+                      Width="300" HorizontalAlignment="Left"
+                      x:Name="Programme"
+                      ItemsSource="{Binding ListeDesProgrammes, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                      />
+                
+                <TextBlock Text="Veillez remplir tout les champs" 
+                   Grid.Row="10"
+                   x:Name="Message2"
+                   HorizontalAlignment="Center"
+                   FontSize="13"
+                   Foreground="red"
+                   Margin="0,20,0,0"/>
+                <Button x:Name="AjouterProgramme"
+                    Grid.Row="11"
+                    Content="Ajouter" 
+                    Foreground="Black"
+                    Background="#00a15e"
+                    FontSize="15"
+                    HorizontalAlignment="left"
+                    FontWeight="UltraBlack"
+                    Margin="0,10,0,0"
+                    Height="35"
+                    Width="120"
+                    BorderBrush="Black"
+                   Click="AjouterStagiaire_Click"
+                    />
+                <Button x:Name="Supprimer" 
+                    Grid.Row="11"
+                    Content="Clear" 
+                    Foreground="Black"
+                    Background="red"
+                    HorizontalAlignment="Right"
+                    FontSize="15"
+                    FontWeight="UltraBlack"
+                    Margin="0,10,0,0"
+                    Height="35"
+                    Width="120"
+                    BorderBrush="Black"
+                    Click="Supprimer_Click2"
+                    />
+            </Grid>
+            
+        </StackPanel>
+
+    </Grid>
+</UserControl>
